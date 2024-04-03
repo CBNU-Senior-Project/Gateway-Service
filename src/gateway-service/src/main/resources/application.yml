@@ -11,8 +11,6 @@ eureka:
 spring:
   application:
     name: gateway-service
-  profiles:
-    active: jwt
   cloud:
     gateway:
         routes:
