@@ -11,6 +11,8 @@ eureka:
 spring:
   application:
     name: gateway-service
+  profiles:
+    active: jwt
   cloud:
     gateway:
         routes:
@@ -18,3 +20,12 @@ spring:
               uri: lb://AUTH-SERVICE
               predicates:
                 - Path=/auth/**
+              filters:
+                - AuthenticationFilter
+
+restclient:
+  baseuri: http://localhost:8082
+
+logging:
+  level:
+    feign: DEBUG
