@@ -1,0 +1,1 @@
+# geteway-service resources
