@@ -44,7 +44,11 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
             ServerHttpRequest request = exchange.getRequest().mutate()
                                 .header("X-Authorization", passport)
                                 .build();
-            return chain.filter(exchange.mutate().request(request).build());
+            return chain.filter(
+                    exchange.mutate()
+                            .request(request)
+                            .build()
+                    );
 
 //            // open feign 사용
 //            return passportClient.generatePassport(token)
